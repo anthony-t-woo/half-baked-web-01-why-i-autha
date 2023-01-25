@@ -15,7 +15,6 @@ export async function signUpUser(email, password) {
         password: password,
     });
 
-    console.log(response);
     return response.user;
 }
 
@@ -24,7 +23,6 @@ export async function signInUser(email, password) {
         email: email,
         password: password,
     });
-    console.log(response);
     return response.user;
 }
 
@@ -40,4 +38,7 @@ export async function redirectIfLoggedIn() {
     }
 }
 
-export async function logout() {}
+export async function logout() {
+    const response = await client.auth.signOut();
+    location.replace('../');
+}
