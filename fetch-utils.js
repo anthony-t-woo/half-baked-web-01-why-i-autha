@@ -10,11 +10,11 @@ export function getUser() {
 }
 
 export async function signUpUser(email, password) {
-    const { data, error } = await client.auth.signUp({
+    const response = await client.auth.signUp({
         email: email,
         password: password,
     });
-    return data;
+    return response.user;
 }
 
 export async function signInUser(email, password) {}
