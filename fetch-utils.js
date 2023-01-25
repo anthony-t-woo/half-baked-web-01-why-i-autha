@@ -10,10 +10,11 @@ export function getUser() {
 }
 
 export async function signUpUser(email, password) {
-    const { data, error } = await supabase.auth.admin.createUser({
+    const { data, error } = await client.auth.signUp({
         email: email,
         password: password,
     });
+    return data;
 }
 
 export async function signInUser(email, password) {}
