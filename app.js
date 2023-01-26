@@ -8,14 +8,14 @@ const signUpForm = document.getElementById('sign-up');
 signInForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const formData = new FormData(signInForm);
-    const response = await signInUser(formData.get('email'), formData.get('password'));
+    await signInUser(formData.get('email'), formData.get('password'));
     redirect();
 });
 
 signUpForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const formData = new FormData(signUpForm);
-    const response = await signUpUser(formData.get('email'), formData.get('password'));
+    await signUpUser(formData.get('email'), formData.get('password'));
     // Redirect to /other-page on successful auth
     redirect();
 });

@@ -14,7 +14,9 @@ export async function signUpUser(email, password) {
         email: email,
         password: password,
     });
-
+    if (response.error) {
+        alert('That email is taken. Please try a different one');
+    }
     return response.user;
 }
 
@@ -23,6 +25,9 @@ export async function signInUser(email, password) {
         email: email,
         password: password,
     });
+    if (response.error) {
+        alert('incorrect login credentials');
+    }
     return response.user;
 }
 
@@ -39,6 +44,6 @@ export async function redirectIfLoggedIn() {
 }
 
 export async function logout() {
-    const response = await client.auth.signOut();
+    await client.auth.signOut();
     location.replace('../');
 }
